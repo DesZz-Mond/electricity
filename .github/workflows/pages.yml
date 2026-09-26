@@ -1,0 +1,57 @@
+name: Deploy GitHub Pages + sync Kirovohradoblenergo
+
+on:
+  push:
+    branches: ["main"]
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Chromium for official-source sync
+        run: npx playwright install --with-deps chromium
+
+      - name: Sync official source
+        continue-on-error: true
+        run: npm run sync
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Prepare static Pages bundle
+        run: |
+          rm -rf _site
+          mkdir -p _site/data
+          cp index.html app.js styles.css _site/
+          touch _site/.nojekyll
+          cp data/*.json _site/data/
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to Pages
+        uses: actions/deploy-pages@v4
