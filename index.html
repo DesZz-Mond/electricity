@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#08111f">
+  <meta name="description" content="Зручний перегляд графіків відключень електроенергії Кіровоградщини з даними ПрАТ «Кіровоградобленерго»." />
+  <title>Світло Кіровоградщини — графік відключень</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="./">
+        <span class="brand__icon">⚡</span>
+        <span>
+          <strong>Світло Кіровоградщини</strong>
+          <small>зручний перегляд даних Кіровоградобленерго</small>
+        </span>
+      </a>
+      <div class="top-actions">
+        <a class="top-link" href="https://kiroe.com.ua/electricity-blackout" target="_blank" rel="noopener">Офіційний сайт ↗</a>
+        <button id="refreshBtn" class="icon-btn" type="button" aria-label="Оновити дані" title="Оновити дані">↻</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero-grid">
+      <div>
+        <div class="eyebrow"><span class="live-dot"></span> ДАНІ З ОФІЦІЙНОГО ДЖЕРЕЛА</div>
+        <h1>Коли буде світло<br><span>за твоєю адресою?</span></h1>
+        <p class="hero-copy">Обери населений пункт, вулицю та будинок. Адреса зберігається на твоєму пристрої, а опубліковані дані оновлюються автоматично.</p>
+      </div>
+      <div class="sync-card" id="syncCard">
+        <div class="sync-card__row"><span>Статус джерела</span><strong id="sourceStatus">Перевіряємо…</strong></div>
+        <div class="sync-card__row"><span>Остання синхронізація</span><strong id="lastSync">—</strong></div>
+        <div class="sync-card__note" id="syncNote">Сайт звіряється з офіційним джерелом ПрАТ «Кіровоградобленерго».</div>
+      </div>
+    </section>
+
+    <section class="panel address-panel">
+      <div class="panel-heading">
+        <div>
+          <span class="section-kicker">ВАША АДРЕСА</span>
+          <h2>Знайти графік</h2>
+        </div>
+        <span class="address-count" id="addressCount">—</span>
+      </div>
+
+      <div class="address-form">
+        <label class="field">
+          <span>1 · Населений пункт</span>
+          <input id="settlementInput" autocomplete="off" placeholder="Почніть вводити…" list="settlementOptions">
+          <datalist id="settlementOptions"></datalist>
+        </label>
+        <label class="field">
+          <span>2 · Вулиця</span>
+          <input id="streetInput" autocomplete="off" placeholder="Спочатку оберіть населений пункт…" list="streetOptions" disabled>
+          <datalist id="streetOptions"></datalist>
+        </label>
+        <label class="field field--house">
+          <span>3 · Будинок</span>
+          <input id="houseInput" autocomplete="off" placeholder="№ будинку" list="houseOptions" disabled>
+          <datalist id="houseOptions"></datalist>
+        </label>
+        <button id="checkBtn" class="primary-btn" type="button">Показати графік <span>→</span></button>
+      </div>
+      <div class="form-message" id="formMessage" role="status" aria-live="polite"></div>
+    </section>
+
+    <section class="saved-wrap" id="savedWrap" hidden>
+      <div class="saved-title"><span>Збережені адреси</span><button id="clearSavedBtn" type="button" class="text-btn">Очистити</button></div>
+      <div class="saved-list" id="savedList"></div>
+    </section>
+
+    <section class="status-hero" id="statusHero">
+      <div class="status-hero__main">
+        <div class="status-icon" id="statusIcon">?</div>
+        <div>
+          <div class="status-label" id="statusLabel">Виберіть адресу</div>
+          <div class="status-sub" id="statusSub">Після пошуку тут з’явиться актуальний стан і черга.</div>
+        </div>
+      </div>
+      <div class="queue-chip" id="queueChip">Черга —</div>
+    </section>
+
+    <section class="panel schedule-panel">
+      <div class="panel-heading panel-heading--schedule">
+        <div>
+          <span class="section-kicker">24 ГОДИНИ</span>
+          <h2 id="scheduleTitle">Графік</h2>
+        </div>
+        <div class="day-tabs" role="tablist" aria-label="День">
+          <button class="day-tab is-active" id="todayBtn" type="button" role="tab">Сьогодні</button>
+          <button class="day-tab" id="tomorrowBtn" type="button" role="tab">Завтра</button>
+        </div>
+      </div>
+
+      <div class="schedule-meta">
+        <div class="legend"><span><i class="legend-dot legend-dot--on"></i> Є світло</span><span><i class="legend-dot legend-dot--off"></i> Відключення</span><span><i class="legend-dot legend-dot--unknown"></i> Немає інформації</span></div>
+        <div class="clock" id="clock">--:--:--</div>
+      </div>
+
+      <div class="schedule-grid" id="scheduleGrid"></div>
+
+      <div class="empty-state" id="scheduleEmpty">
+        <div class="empty-state__icon">⚡</div>
+        <strong>Спочатку виберіть адресу</strong>
+        <span>Після пошуку тут буде показаний погодинний графік для вашої черги.</span>
+      </div>
+    </section>
+
+    <section class="info-grid">
+      <article class="info-card">
+        <span class="info-card__icon">⚠</span>
+        <div><strong>Аварійні відключення</strong><p>Аварійні відключення вводяться екстрено, тому заздалегідь у графіку їх може не бути.</p></div>
+        <a href="https://kiroe.com.ua/energy/emergency" target="_blank" rel="noopener">Перевірити ↗</a>
+      </article>
+      <article class="info-card">
+        <span class="info-card__icon">🛠</span>
+        <div><strong>Планові роботи</strong><p>Ремонтні та регламентні роботи можуть спричинити відсутність світла поза ГПВ.</p></div>
+        <a href="https://kiroe.com.ua/energy/plan" target="_blank" rel="noopener">Перевірити ↗</a>
+      </article>
+      <article class="info-card">
+        <span class="info-card__icon">☎</span>
+        <div><strong>Кол-центр 24/7</strong><p>0-800-300-552 · 0-800-501-148</p></div>
+        <a href="tel:0800300552">Зателефонувати</a>
+      </article>
+    </section>
+
+    <section class="source-note">
+      <div><strong>Офіційне джерело:</strong> ПрАТ «Кіровоградобленерго» · <a href="https://kiroe.com.ua/electricity-blackout" target="_blank" rel="noopener">kiroe.com.ua/electricity-blackout</a></div>
+      <div id="freshnessText">Показано останній доступний синхронізований знімок.</div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Світло Кіровоградщини · 2026</span>
+    <span>Дані: ПрАТ «Кіровоградобленерго»</span>
+  </footer>
+
+  <div class="toast" id="toast" aria-live="polite"></div>
+  <script src="app.js" defer></script>
+</body>
+</html>

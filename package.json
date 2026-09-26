@@ -1,0 +1,14 @@
+{
+  "name": "svitlo-kiroe-github-pages",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync": "node scripts/sync-official.mjs",
+    "test:js": "node --check app.js && node --check scripts/sync-official.mjs",
+    "test": "npm run test:js"
+  },
+  "devDependencies": {
+    "playwright": "^1.55.0"
+  }
+}

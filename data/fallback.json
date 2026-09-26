@@ -1,0 +1,551 @@
+{
+  "generatedFrom": "original-project-fallback",
+  "districts": [
+    {
+      "id": "krop-city",
+      "name": "Кропивницький міський РЕМ",
+      "code": "01",
+      "address": "м. Кропивницький, Студентський бульвар, 15",
+      "phone": "(0522) 35-82-55, 0-800-501-148",
+      "popularSettlements": [
+        "м. Кропивницький",
+        "селище Нове",
+        "селище Гірниче"
+      ]
+    },
+    {
+      "id": "krop-rural",
+      "name": "Кропивницький сільський РЕМ",
+      "code": "02",
+      "address": "с. Соколівське, пр. Соколівський, 23",
+      "phone": "(0522) 35-73-49, 0-800-501-148",
+      "popularSettlements": [
+        "с. Соколівське",
+        "с. Бережинка",
+        "с. Велика Северинка",
+        "с. Грузьке",
+        "с. Аджамка",
+        "с. Клинці",
+        "с. Підгайці",
+        "с. Вільне",
+        "с. Івано-Благодатне"
+      ]
+    },
+    {
+      "id": "oleksandriya",
+      "name": "Олександрійський РЕМ",
+      "code": "03",
+      "address": "м. Олександрія, вул. Діброви, 27",
+      "phone": "(05235) 7-10-04, 0-800-501-148",
+      "popularSettlements": [
+        "м. Олександрія",
+        "смт Олександрійське",
+        "смт Приютівка",
+        "с. Войнівка",
+        "с. Головківка"
+      ]
+    },
+    {
+      "id": "znamyanka",
+      "name": "Знам'янський РЕМ",
+      "code": "04",
+      "address": "м. Знам'янка, вул. Грушевського, 114",
+      "phone": "(05233) 3-12-34, 0-800-501-148",
+      "popularSettlements": [
+        "м. Знам'янка",
+        "смт Знам'янка Друга",
+        "с. Богданівка",
+        "с. Дмитрівка",
+        "с. Суботці"
+      ]
+    },
+    {
+      "id": "svitlovodsk",
+      "name": "Світловодський РЕМ",
+      "code": "05",
+      "address": "м. Світловодськ, вул. Богдана Хмельницького, 18",
+      "phone": "(05236) 2-25-10, 0-800-501-148",
+      "popularSettlements": [
+        "м. Світловодськ",
+        "смт Власівка",
+        "с. Павлівка",
+        "с. Микільське",
+        "с. Подорожнє"
+      ]
+    },
+    {
+      "id": "dolynska",
+      "name": "Долинський РЕМ",
+      "code": "06",
+      "address": "м. Долинська, вул. Соборності України, 5",
+      "phone": "(05234) 5-11-20, 0-800-501-148",
+      "popularSettlements": [
+        "м. Долинська",
+        "смт Молодіжне",
+        "с. Гурівка",
+        "с. Братолюбівка"
+      ]
+    },
+    {
+      "id": "novoukrainka",
+      "name": "Новоукраїнський РЕМ",
+      "code": "07",
+      "address": "м. Новоукраїнка, вул. Миколи Вороного, 64",
+      "phone": "(05251) 2-15-40, 0-800-501-148",
+      "popularSettlements": [
+        "м. Новоукраїнка",
+        "с. Рівне",
+        "с. Ганнівка",
+        "с. Захарівка"
+      ]
+    },
+    {
+      "id": "haivoron",
+      "name": "Гайворонський РЕМ",
+      "code": "08",
+      "address": "м. Гайворон, вул. Василя Стуса, 12",
+      "phone": "(05254) 2-18-48, 0-800-501-148",
+      "popularSettlements": [
+        "м. Гайворон",
+        "смт Завалля",
+        "с. Хащувате",
+        "с. Солгутове"
+      ]
+    },
+    {
+      "id": "bobrynets",
+      "name": "Бобринецький РЕМ",
+      "code": "09",
+      "address": "м. Бобринець, вул. Миколаївська, 45",
+      "phone": "(05257) 3-41-54, 0-800-501-148",
+      "popularSettlements": [
+        "м. Бобринець",
+        "с. Кетрисанівка",
+        "с. Чарівне",
+        "с. Олексіївка"
+      ]
+    },
+    {
+      "id": "malavyska",
+      "name": "Маловисківський РЕМ",
+      "code": "10",
+      "address": "м. Мала Виска, вул. Центральна, 39",
+      "phone": "(05258) 5-14-30, 0-800-501-148",
+      "popularSettlements": [
+        "м. Мала Виска",
+        "смт Смоліне",
+        "с. Паліївці"
+      ]
+    },
+    {
+      "id": "holovanivsk",
+      "name": "Голованівський РЕМ",
+      "code": "11",
+      "address": "смт Голованівськ, вул. Соборна, 28",
+      "phone": "(05252) 2-12-88, 0-800-501-148",
+      "popularSettlements": [
+        "смт Голованівськ",
+        "смт Побузьке",
+        "с. Клинове"
+      ]
+    },
+    {
+      "id": "novomyrhorod",
+      "name": "Новомиргородський РЕМ",
+      "code": "12",
+      "address": "м. Новомиргород, вул. Соборності, 102",
+      "phone": "(05256) 4-11-02, 0-800-501-148",
+      "popularSettlements": [
+        "м. Новомиргород",
+        "смт Капітанівка",
+        "с. Петроострів"
+      ]
+    },
+    {
+      "id": "dobrovelychkivka",
+      "name": "Добровеличківський РЕМ",
+      "code": "13",
+      "address": "смт Добровеличківка, вул. Незалежності, 58",
+      "phone": "(05253) 5-13-44, 0-800-501-148",
+      "popularSettlements": [
+        "смт Добровеличківка",
+        "м. Помічна",
+        "с. Липняжка"
+      ]
+    },
+    {
+      "id": "oleksandrivka",
+      "name": "Олександрівський РЕМ",
+      "code": "14",
+      "address": "смт Олександрівка, вул. Шевченка, 31",
+      "phone": "(05242) 3-21-50, 0-800-501-148",
+      "popularSettlements": [
+        "смт Олександрівка",
+        "с. Михайлівка",
+        "с. Розумівка"
+      ]
+    },
+    {
+      "id": "petrove",
+      "name": "Петрівський РЕМ",
+      "code": "15",
+      "address": "смт Петрове, вул. Центральна, 14",
+      "phone": "(05237) 9-11-23, 0-800-501-148",
+      "popularSettlements": [
+        "смт Петрове",
+        "с. Іскрівка",
+        "с. Червонокостянтинівка"
+      ]
+    },
+    {
+      "id": "novoarkhanhelsk",
+      "name": "Новоархангельський РЕМ",
+      "code": "16",
+      "address": "смт Новоархангельськ, вул. Слави, 4",
+      "phone": "(05255) 2-16-70, 0-800-501-148",
+      "popularSettlements": [
+        "смт Новоархангельськ",
+        "с. Торговиця",
+        "с. Покотилове"
+      ]
+    },
+    {
+      "id": "blahovishchenske",
+      "name": "Благовіщенський РЕМ",
+      "code": "17",
+      "address": "м. Благовіщенське, вул. Промислова, 2",
+      "phone": "(05259) 2-16-82, 0-800-501-148",
+      "popularSettlements": [
+        "м. Благовіщенське",
+        "с. Йосипівка",
+        "с. Великі Трояни"
+      ]
+    },
+    {
+      "id": "kompaniivka",
+      "name": "Компаніївський РЕМ",
+      "code": "18",
+      "address": "смт Компаніївка, вул. Паркова, 7",
+      "phone": "(05240) 2-01-44, 0-800-501-148",
+      "popularSettlements": [
+        "смт Компаніївка",
+        "с. Сасівка",
+        "с. Мар'ївка"
+      ]
+    },
+    {
+      "id": "novhorodka",
+      "name": "Новгородківський РЕМ",
+      "code": "19",
+      "address": "смт Новгородка, вул. Криворізька, 19",
+      "phone": "(05241) 2-13-55, 0-800-501-148",
+      "popularSettlements": [
+        "смт Новгородка",
+        "с. Спасове",
+        "с. Петрокорбівка"
+      ]
+    },
+    {
+      "id": "vilshanka",
+      "name": "Вільшанський РЕМ",
+      "code": "20",
+      "address": "смт Вільшанка, вул. Миру, 30",
+      "phone": "(05250) 9-71-30, 0-800-501-148",
+      "popularSettlements": [
+        "смт Вільшанка",
+        "с. Добре",
+        "с. Березова Балка"
+      ]
+    },
+    {
+      "id": "onufriivka",
+      "name": "Онуфріївський РЕМ",
+      "code": "21",
+      "address": "смт Онуфріївка, вул. Поштова, 15",
+      "phone": "(05238) 2-04-12, 0-800-501-148",
+      "popularSettlements": [
+        "смт Онуфріївка",
+        "смт Павлиш",
+        "с. Камбурліївка"
+      ]
+    },
+    {
+      "id": "ustynivka",
+      "name": "Устинівський РЕМ",
+      "code": "22",
+      "address": "смт Устинівка, вул. Ювілейна, 3",
+      "phone": "(05239) 4-11-50, 0-800-501-148",
+      "popularSettlements": [
+        "смт Устинівка",
+        "с. Інгульське",
+        "с. Криничуватка"
+      ]
+    }
+  ],
+  "streets": [
+    {
+      "settlement": "м. Кропивницький",
+      "districtId": "krop-city",
+      "street": "вул. Велика Перспективна",
+      "queueId": 2,
+      "subQueue": "2.1",
+      "buildingNote": "Будинки 1-85"
+    },
+    {
+      "settlement": "м. Кропивницький",
+      "districtId": "krop-city",
+      "street": "вул. Велика Перспективна",
+      "queueId": 2,
+      "subQueue": "2.2",
+      "buildingNote": "Будинки 86-130"
+    },
+    {
+      "settlement": "м. Кропивницький",
+      "districtId": "krop-city",
+      "street": "вул. Соборна",
+      "queueId": 1,
+      "subQueue": "1.1",
+      "buildingNote": "Парна сторона"
+    },
+    {
+      "settlement": "м. Кропивницький",
+      "districtId": "krop-city",
+      "street": "вул. Соборна",
+      "queueId": 1,
+      "subQueue": "1.2",
+      "buildingNote": "Непарна сторона"
+    },
+    {
+      "settlement": "м. Кропивницький",
+      "districtId": "krop-city",
+      "street": "вул. Героїв України",
+      "queueId": 3,
+      "subQueue": "3.1",
+      "buildingNote": "Усі номери"
+    },
+    {
+      "settlement": "м. Кропивницький",
+      "districtId": "krop-city",
+      "street": "вул. Космонавта Попова",
+      "queueId": 4,
+      "subQueue": "4.1",
+      "buildingNote": "Будинки 1-26"
+    },
+    {
+      "settlement": "м. Кропивницький",
+      "districtId": "krop-city",
+      "street": "вул. Космонавта Попова",
+      "queueId": 4,
+      "subQueue": "4.2",
+      "buildingNote": "Будинки 27-60"
+    },
+    {
+      "settlement": "м. Кропивницький",
+      "districtId": "krop-city",
+      "street": "вул. Генерала Жадова",
+      "queueId": 5,
+      "subQueue": "5.1",
+      "buildingNote": "Корпуси 1-28"
+    },
+    {
+      "settlement": "м. Кропивницький",
+      "districtId": "krop-city",
+      "street": "вул. Полтавська",
+      "queueId": 6,
+      "subQueue": "6.1",
+      "buildingNote": "Усі будинки"
+    },
+    {
+      "settlement": "м. Кропивницький",
+      "districtId": "krop-city",
+      "street": "вул. Вокзальна",
+      "queueId": 3,
+      "subQueue": "3.2",
+      "buildingNote": "Район вокзалу"
+    },
+    {
+      "settlement": "м. Кропивницький",
+      "districtId": "krop-city",
+      "street": "вул. Євгена Тельнова",
+      "queueId": 1,
+      "subQueue": "1.2",
+      "buildingNote": "Будинки 2-14"
+    },
+    {
+      "settlement": "м. Кропивницький",
+      "districtId": "krop-city",
+      "street": "вул. Пацаєва",
+      "queueId": 4,
+      "subQueue": "4.2",
+      "buildingNote": "Усі будинки"
+    },
+    {
+      "settlement": "м. Кропивницький",
+      "districtId": "krop-city",
+      "street": "вул. Академіка Тамма",
+      "queueId": 2,
+      "subQueue": "2.2",
+      "buildingNote": "Усі номери"
+    },
+    {
+      "settlement": "м. Кропивницький",
+      "districtId": "krop-city",
+      "street": "вул. Шевченка",
+      "queueId": 1,
+      "subQueue": "1.1",
+      "buildingNote": "Центральна частина"
+    },
+    {
+      "settlement": "м. Кропивницький",
+      "districtId": "krop-city",
+      "street": "вул. Преображенська",
+      "queueId": 2,
+      "subQueue": "2.1",
+      "buildingNote": "Будинки 1-90"
+    },
+    {
+      "settlement": "м. Кропивницький",
+      "districtId": "krop-city",
+      "street": "вул. В'ячеслава Чорновола",
+      "queueId": 5,
+      "subQueue": "5.2",
+      "buildingNote": "Усі номери"
+    },
+    {
+      "settlement": "м. Кропивницький",
+      "districtId": "krop-city",
+      "street": "вул. Театральна",
+      "queueId": 2,
+      "subQueue": "2.1",
+      "buildingNote": "Центральний район"
+    },
+    {
+      "settlement": "м. Кропивницький",
+      "districtId": "krop-city",
+      "street": "Студентський бульвар",
+      "queueId": 3,
+      "subQueue": "3.1",
+      "buildingNote": "Усі номери"
+    },
+    {
+      "settlement": "м. Кропивницький",
+      "districtId": "krop-city",
+      "street": "Університетський проспект",
+      "queueId": 6,
+      "subQueue": "6.2",
+      "buildingNote": "Будинки 1-35"
+    },
+    {
+      "settlement": "м. Кропивницький",
+      "districtId": "krop-city",
+      "street": "вул. Короленка",
+      "queueId": 5,
+      "subQueue": "5.1",
+      "buildingNote": "Балашівка"
+    },
+    {
+      "settlement": "м. Кропивницький",
+      "districtId": "krop-city",
+      "street": "вул. Андріївська",
+      "queueId": 4,
+      "subQueue": "4.1",
+      "buildingNote": "Кущівка"
+    },
+    {
+      "settlement": "м. Кропивницький",
+      "districtId": "krop-city",
+      "street": "вул. Яновського",
+      "queueId": 3,
+      "subQueue": "3.2",
+      "buildingNote": "Усі номери"
+    },
+    {
+      "settlement": "м. Кропивницький",
+      "districtId": "krop-city",
+      "street": "вул. Кільцева",
+      "queueId": 6,
+      "subQueue": "6.1",
+      "buildingNote": "Промисловий сектор"
+    },
+    {
+      "settlement": "м. Олександрія",
+      "districtId": "oleksandriya",
+      "street": "пр. Соборний",
+      "queueId": 2,
+      "subQueue": "2.2",
+      "buildingNote": "Центр"
+    },
+    {
+      "settlement": "м. Олександрія",
+      "districtId": "oleksandriya",
+      "street": "вул. Шевченка",
+      "queueId": 1,
+      "subQueue": "1.2",
+      "buildingNote": "Усі номери"
+    },
+    {
+      "settlement": "м. Олександрія",
+      "districtId": "oleksandriya",
+      "street": "вул. Діброви",
+      "queueId": 3,
+      "subQueue": "3.1",
+      "buildingNote": "Усі номери"
+    },
+    {
+      "settlement": "м. Олександрія",
+      "districtId": "oleksandriya",
+      "street": "вул. Першотравнева",
+      "queueId": 4,
+      "subQueue": "4.1",
+      "buildingNote": "Будинки 1-50"
+    },
+    {
+      "settlement": "м. Знам'янка",
+      "districtId": "znamyanka",
+      "street": "вул. Михайла Грушевського",
+      "queueId": 1,
+      "subQueue": "1.1",
+      "buildingNote": "Усі будинки"
+    },
+    {
+      "settlement": "м. Знам'янка",
+      "districtId": "znamyanka",
+      "street": "вул. Київська",
+      "queueId": 2,
+      "subQueue": "2.1",
+      "buildingNote": "Усі номери"
+    },
+    {
+      "settlement": "м. Знам'янка",
+      "districtId": "znamyanka",
+      "street": "вул. Привокзальна",
+      "queueId": 3,
+      "subQueue": "3.2",
+      "buildingNote": "Район станції"
+    },
+    {
+      "settlement": "м. Світловодськ",
+      "districtId": "svitlovodsk",
+      "street": "вул. Богдана Хмельницького",
+      "queueId": 1,
+      "subQueue": "1.2",
+      "buildingNote": "Усі номери"
+    },
+    {
+      "settlement": "м. Світловодськ",
+      "districtId": "svitlovodsk",
+      "street": "вул. Героїв України",
+      "queueId": 2,
+      "subQueue": "2.2",
+      "buildingNote": "Центральна лінія"
+    },
+    {
+      "settlement": "м. Світловодськ",
+      "districtId": "svitlovodsk",
+      "street": "вул. Приморська",
+      "queueId": 5,
+      "subQueue": "5.1",
+      "buildingNote": "Набережна"
+    }
+  ]
+}
