@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101d32">
+  <meta name="description" content="Зручний персональний графік відключень світла для адрес у Кіровоградській області.">
+  <title>Світло поруч — графік відключень</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="Світло поруч — на головну">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M13.2 2.7 5.8 13h5.1l-.5 8.3L18.2 10h-5.1l.1-7.3Z" fill="currentColor"/></svg>
+        </span>
+        <span class="brand-copy"><strong>світло<span>поруч</span></strong><small>ваш графік без зайвого</small></span>
+      </a>
+      <div class="topbar-actions">
+        <span class="region-pill"><span class="region-dot"></span> Кіровоградська область</span>
+        <button class="icon-button" id="theme-toggle" type="button" aria-label="Перемкнути тему" title="Перемкнути тему">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+        <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+        <div class="hero-content">
+          <div class="eyebrow"><span class="eyebrow-icon">✦</span> ПРОСТО. ЗРУЧНО. ДЛЯ ВАШОЇ АДРЕСИ.</div>
+          <h1>Плануйте день,<br><span>а не шукайте світло.</span></h1>
+          <p class="hero-lead">Збережіть дім, роботу чи іншу адресу — і графік потрібної черги буде під рукою щоразу, коли відкриєте сайт.</p>
+          <div class="hero-meta">
+            <span class="meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg> 12 підчерг</span>
+            <span class="meta-divider"></span>
+            <span class="meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v4l3 2"/><circle cx="12" cy="12" r="9"/></svg> Перевірка оновлень приблизно кожні 10 хв</span>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-outer"></div><div class="orbit orbit-inner"></div>
+          <div class="sun-disc"></div>
+          <div class="hero-bolt"><svg viewBox="0 0 24 24"><path d="M13.2 2.7 5.8 13h5.1l-.5 8.3L18.2 10h-5.1l.1-7.3Z" fill="currentColor"/></svg></div>
+          <div class="float-card float-card-top"><span class="mini-status mini-status-on"></span><span><b>Світло є</b><small>можна планувати</small></span></div>
+          <div class="float-card float-card-bottom"><span class="float-clock">24</span><span><b>години</b><small>на одному графіку</small></span></div>
+          <span class="art-star art-star-one">✳</span><span class="art-star art-star-two">✦</span>
+        </div>
+      </section>
+
+      <section class="disclaimer" aria-label="Важливо про дані">
+        <span class="disclaimer-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2.8 20h18.4L12 3Z"/><path d="M12 9v4m0 3h.01"/></svg></span>
+        <div><strong>Дані для орієнтування, не гарантія фактичного електропостачання.</strong><p>Погодинні графіки можуть не застосовуватися або змінюватися. Якщо даних немає, сайт так і покаже — без вигаданих годин. Для підтвердження перевіряйте офіційне джерело.</p></div>
+        <a href="https://kiroe.com.ua/electricity-blackout" target="_blank" rel="noopener noreferrer" class="text-link">Офіційний сайт <span aria-hidden="true">↗</span></a>
+      </section>
+
+      <section class="dashboard-grid" aria-label="Ваші адреси та графік">
+        <aside class="addresses-panel panel">
+          <div class="panel-heading">
+            <div><span class="section-kicker">ВАШІ МІСЦЯ</span><h2>Мої адреси <span id="address-count" class="count-badge">0</span></h2></div>
+            <button class="add-button" id="show-address-form" type="button" aria-label="Додати адресу" title="Додати адресу"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+          </div>
+          <p class="panel-subtitle">Зберігаються на цьому пристрої — вхід не потрібен.</p>
+          <div id="address-list" class="address-list"></div>
+          <div id="empty-addresses" class="empty-addresses">
+            <div class="empty-illustration" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M10 28.5 32 10l22 18.5"/><path d="M17 25v28h30V25M26 53V37h12v16"/><path d="M9 29h46"/></svg><span>+</span></div>
+            <h3>Додайте першу адресу</h3>
+            <p>Наприклад, дім або роботу. Оберіть підчергу — і графік завжди буде поруч.</p>
+            <button type="button" id="empty-add-button" class="button button-primary button-full">Додати адресу <span aria-hidden="true">→</span></button>
+          </div>
+
+          <form id="address-form" class="address-form" hidden>
+            <div class="form-heading"><div><span class="section-kicker">НОВА КАРТКА</span><h3>Збережіть адресу</h3></div><button type="button" class="close-button" id="cancel-address-form" aria-label="Закрити форму">×</button></div>
+            <label for="address-label">Назва <span class="optional">необов’язково</span></label>
+            <input id="address-label" name="label" type="text" maxlength="40" placeholder="Наприклад, Дім" autocomplete="off">
+            <label for="settlement">Населений пункт</label>
+            <input id="settlement" name="settlement" type="text" maxlength="90" placeholder="Кропивницький" required autocomplete="address-level2">
+            <label for="street">Вулиця</label>
+            <input id="street" name="street" type="text" maxlength="100" placeholder="вул. Велика Перспективна" required autocomplete="street-address">
+            <div class="form-row">
+              <div class="form-field-house"><label for="house">Будинок</label><input id="house" name="house" type="text" maxlength="20" placeholder="12А" required autocomplete="address-line2"></div>
+              <div class="form-field-queue"><label for="queue">Підчерга</label><select id="queue" name="queue" required><option value="">Оберіть</option></select></div>
+            </div>
+            <p class="queue-help">Не знаєте підчергу? <a href="https://kiroe.com.ua/electricity-blackout" target="_blank" rel="noopener noreferrer">Перевірте адресу в оператора ↗</a>, а потім поверніться сюди.</p>
+            <div id="form-error" class="form-error" role="alert" hidden></div>
+            <button class="button button-primary button-full" id="address-form-submit" type="submit">Зберегти адресу <span aria-hidden="true">→</span></button>
+          </form>
+          <div class="privacy-note"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><span>Ваші адреси не надсилаються на сервер. Вони зберігаються лише в пам’яті браузера.</span></div>
+        </aside>
+
+        <section class="schedule-panel panel" aria-live="polite">
+          <div class="schedule-heading">
+            <div><span class="section-kicker">ПЕРСОНАЛЬНИЙ ПРОГНОЗ</span><h2 id="schedule-title">Ваш графік</h2><p id="schedule-address" class="schedule-address">Оберіть або додайте адресу, щоб побачити графік.</p></div>
+            <button class="icon-button refresh-button" id="refresh-data" type="button" aria-label="Оновити дані на сторінці" title="Перечитати дані"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M6.2 9A6.5 6.5 0 0 1 17 6l3 6M4 12l3 6a6.5 6.5 0 0 0 10.8-3"/></svg></button>
+          </div>
+          <div class="schedule-controls">
+            <div class="day-tabs" role="tablist" aria-label="Оберіть день"><button type="button" class="day-tab is-active" id="tab-today" role="tab" aria-selected="true" data-day="today">Сьогодні</button><button type="button" class="day-tab" id="tab-tomorrow" role="tab" aria-selected="false" data-day="tomorrow">Завтра</button></div>
+            <div class="date-label" id="schedule-date">—</div>
+          </div>
+          <div id="current-status" class="current-status current-status-neutral">
+            <span class="status-orb" aria-hidden="true"></span>
+            <div class="current-status-copy"><strong>Очікуємо адресу</strong><span>Ваш персональний графік з’явиться тут.</span></div>
+            <div class="current-time" id="current-time">--:--<small>зараз</small></div>
+          </div>
+          <div class="timeline-wrap">
+            <div class="timeline-topline"><span>ГРАФІК НА 24 ГОДИНИ</span><span id="timeline-caption">Погодинні інтервали</span></div>
+            <div id="timeline" class="timeline" aria-label="Погодинний графік"></div>
+            <div class="timeline-labels"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>24:00</span></div>
+          </div>
+          <div class="legend">
+            <span><i class="legend-dot legend-on"></i> Світло є</span>
+            <span><i class="legend-dot legend-off"></i> Світла немає</span>
+            <span><i class="legend-dot legend-possible"></i> Можливе відключення</span>
+            <span><i class="legend-dot legend-unknown"></i> Немає даних</span>
+          </div>
+          <div id="data-message" class="data-message"><span class="data-message-icon">i</span><p>Щоб побачити графік, спершу додайте адресу та вкажіть її підчергу.</p></div>
+          <div class="schedule-footer"><span class="source-indicator"><i></i> Джерело: Svitlo.live</span><span id="last-updated">Автоперевірка — приблизно кожні 10 хв</span></div>
+          <div class="schedule-actions"><a href="https://svitlo.live/kirovogradska-oblast" target="_blank" rel="noopener noreferrer" class="text-link">Відкрити джерело графіків ↗</a><span class="address-actions"><button type="button" id="edit-address" class="remove-link" hidden>Змінити</button><button type="button" id="remove-address" class="remove-link" hidden>Видалити адресу</button></span></div>
+        </section>
+      </section>
+
+      <section class="how-it-works">
+        <div class="how-title"><span class="section-kicker">ТРИ ПРОСТІ КРОКИ</span><h2>Налаштуйте один раз</h2><p>А потім просто відкривайте сайт, коли потрібно спланувати день.</p></div>
+        <div class="steps-grid">
+          <article class="step-card"><span class="step-number">01</span><div class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h3>Додайте адресу</h3><p>Збережіть дім, роботу чи інше місце, для якого потрібен графік.</p></article>
+          <article class="step-card"><span class="step-number">02</span><div class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h3m2 0h3M8 16h8"/></svg></div><h3>Вкажіть підчергу</h3><p>Звірте її з оператором — для різних адрес черга може відрізнятися.</p></article>
+          <article class="step-card"><span class="step-number">03</span><div class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 2.7 5.8 13h5.1l-.5 8.3L18.2 10h-5.1l.1-7.3Z"/></svg></div><h3>Перевіряйте графік</h3><p>Адреси залишаться у браузері, а доступні дані графіків оновлюватимуться автоматично.</p></article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer"><a class="footer-brand" href="./">світло<span>поруч</span></a><p>Незалежний довідковий інтерфейс. Не пов’язаний з оператором електромереж.</p><div class="footer-links"><a href="https://kiroe.com.ua/electricity-blackout" target="_blank" rel="noopener noreferrer">Кіровоградобленерго</a><a href="https://krop.energy-ua.info/" target="_blank" rel="noopener noreferrer">Energy-UA</a><a href="https://svitlo.live/kirovogradska-oblast" target="_blank" rel="noopener noreferrer">Svitlo.live</a></div></footer>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
